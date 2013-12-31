@@ -1,8 +1,8 @@
-<?php namespace Humweb\Breadcrumbs;
+<?php namespace Humweb\Event;
 
 use Illuminate\Support\ServiceProvider;
 
-class BreadcrumbsServiceProvider extends ServiceProvider {
+class EventServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -13,7 +13,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider {
 
 	public function boot()
 	{
-		$this->package('humweb/breadcrumbs');
+		$this->package('humweb/event');
 	}
 
 
@@ -24,10 +24,6 @@ class BreadcrumbsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->bindShared('breadcrumbs', function($app)
-		{
-			return new Breadcrumbs();
-		});
 	}
 
 
@@ -38,7 +34,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider {
 	 */
 	public function provides()
 	{
-		return array('breadcrumbs', 'navigation');
+		return array('event', 'dispatcher', 'event services');
 	}
 
 }
