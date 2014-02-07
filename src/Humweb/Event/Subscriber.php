@@ -9,7 +9,7 @@ class Subscriber {
 
     function __construct()
     {
-        $this->className = __CLASS__;
+        $this->className = get_class($this);
     }
 
     public static function make()
